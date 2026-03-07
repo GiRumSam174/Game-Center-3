@@ -1,0 +1,24 @@
+{
+  "name": "Game Center 3",
+  "short_name": "GameCenter3",
+  "description": "The ultimate retro and neon arcade experience.",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "background_color": "#0f0f1b",
+  "theme_color": "#00f3ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
