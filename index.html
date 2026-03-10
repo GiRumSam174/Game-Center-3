@@ -732,6 +732,7 @@
         class Player {
             constructor() {
                 this.x = canvas.width/2; this.y = canvas.height/2; this.radius = 15;
+                // INCREASED BASE HEALTH
                 this.speed = 250; this.maxHp = 150; this.hp = 150;
                 this.xp = 0; this.lvl = 1; this.xpNeeded = 10;
                 this.damage = 15; this.fireRate = 0.25; this.fireTimer = 0;
@@ -873,16 +874,21 @@
                 if(dist < p.radius + this.radius) { 
                     p.addXp(this.val); 
                     
-                    // --- NEW HEALING LOGIC ---
-                    // Heal based on gem value (1 HP for small, 5 HP for brutes)
+                    // --- NEW HEALING LOGIC INCORPORATED HERE ---
                     p.hp = Math.min(p.maxHp, p.hp + this.val);
-                    updateHUD(); // Refresh the health bar visually
-                    // -------------------------
+                    updateHUD(); 
+                    // -------------------------------------------
                     
                     AudioSys.ui(); 
                     this.life = -1; 
                 }
             }
+            draw() {
+                ctx.fillStyle = '#0f0'; ctx.shadowBlur=10; ctx.shadowColor='#0f0';
+                ctx.beginPath(); ctx.moveTo(this.x, this.y-this.radius); ctx.lineTo(this.x+this.radius, this.y); ctx.lineTo(this.x, this.y+this.radius); ctx.lineTo(this.x-this.radius, this.y); ctx.fill();
+                ctx.shadowBlur=0;
+            }
+        }
 
         class Particle {
             constructor(x,y,color) {
